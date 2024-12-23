@@ -1,4 +1,4 @@
-package id.my.hendisantika.employe.model;
+package id.my.hendisantika.employee.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
