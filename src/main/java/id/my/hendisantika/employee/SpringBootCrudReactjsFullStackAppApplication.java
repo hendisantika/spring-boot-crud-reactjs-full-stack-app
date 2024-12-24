@@ -17,11 +17,11 @@ public class SpringBootCrudReactjsFullStackAppApplication {
     @Bean
     public CommandLineRunner demo(EmployeeRepository employeeRepository) {
         return (args) -> {
-            employeeRepository.save(new Employee(1L, "Uzumaki", "Naruto", "naruto@yopmail.com"));
-            employeeRepository.save(new Employee(2L, "Uchiha", "Sasuke", "sasuke@yopmail.com"));
-            employeeRepository.save(new Employee(3L, "Haruno", "Sakura", "sakura@yopmail.com"));
-            employeeRepository.save(new Employee(4L, "Hatake", "Kakashi", "kakashi@yopmail.com"));
-            employeeRepository.save(new Employee(5L, "Itadori", "Yuji", "yuji@yopmail.com"));
+            employeeRepository.save(new Employee("Uzumaki", "Naruto", "naruto@yopmail.com"));
+            employeeRepository.save(new Employee("Uchiha", "Sasuke", "sasuke@yopmail.com"));
+            employeeRepository.save(new Employee("Haruno", "Sakura", "sakura@yopmail.com"));
+            employeeRepository.save(new Employee("Hatake", "Kakashi", "kakashi@yopmail.com"));
+            employeeRepository.save(new Employee("Itadori", "Yuji", "yuji@yopmail.com"));
         };
     }
 }
