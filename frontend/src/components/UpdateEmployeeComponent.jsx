@@ -9,7 +9,7 @@ class UpdateEmployeeComponent extends Component {
             id: this.props.match.params.id,
             firstName: '',
             lastName: '',
-            emailId: ''
+            email: ''
         }
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
         this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
@@ -22,14 +22,14 @@ class UpdateEmployeeComponent extends Component {
             this.setState({
                 firstName: employee.firstName,
                 lastName: employee.lastName,
-                emailId: employee.emailId
+                email: employee.email
             });
         });
     }
 
     updateEmployee = (e) => {
         e.preventDefault();
-        let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
+        let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.email};
         console.log('employee => ' + JSON.stringify(employee));
         console.log('id => ' + JSON.stringify(this.state.id));
         EmployeeService.updateEmployee(employee, this.state.id).then(res => {
@@ -76,7 +76,7 @@ class UpdateEmployeeComponent extends Component {
                                     <div className="form-group">
                                         <label> Email Id: </label>
                                         <input placeholder="Email Address" name="emailId" className="form-control"
-                                               value={this.state.emailId} onChange={this.changeEmailHandler}/>
+                                               value={this.state.email} onChange={this.changeEmailHandler}/>
                                     </div>
 
                                     <button className="btn btn-success" onClick={this.updateEmployee}>Save</button>
