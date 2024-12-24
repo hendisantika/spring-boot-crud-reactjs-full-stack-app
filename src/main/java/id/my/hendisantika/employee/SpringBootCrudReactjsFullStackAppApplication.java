@@ -17,6 +17,7 @@ public class SpringBootCrudReactjsFullStackAppApplication {
     @Bean
     public CommandLineRunner demo(EmployeeRepository employeeRepository) {
         return (args) -> {
+            employeeRepository.deleteAll();
             employeeRepository.save(new Employee("Uzumaki", "Naruto", "naruto@yopmail.com"));
             employeeRepository.save(new Employee("Uchiha", "Sasuke", "sasuke@yopmail.com"));
             employeeRepository.save(new Employee("Haruno", "Sakura", "sakura@yopmail.com"));

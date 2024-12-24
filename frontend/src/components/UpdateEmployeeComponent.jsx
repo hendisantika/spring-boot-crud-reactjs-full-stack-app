@@ -29,7 +29,7 @@ class UpdateEmployeeComponent extends Component {
 
     updateEmployee = (e) => {
         e.preventDefault();
-        let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.email};
+        let employee = {firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email};
         console.log('employee => ' + JSON.stringify(employee));
         console.log('id => ' + JSON.stringify(this.state.id));
         EmployeeService.updateEmployee(employee, this.state.id).then(res => {
@@ -46,7 +46,7 @@ class UpdateEmployeeComponent extends Component {
     }
 
     changeEmailHandler = (event) => {
-        this.setState({emailId: event.target.value});
+        this.setState({email: event.target.value});
     }
 
     cancel() {
@@ -75,7 +75,7 @@ class UpdateEmployeeComponent extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label> Email Id: </label>
-                                        <input placeholder="Email Address" name="emailId" className="form-control"
+                                        <input placeholder="Email Address" name="email" className="form-control"
                                                value={this.state.email} onChange={this.changeEmailHandler}/>
                                     </div>
 

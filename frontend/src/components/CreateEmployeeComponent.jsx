@@ -10,7 +10,7 @@ class CreateEmployeeComponent extends Component {
             id: this.props.match.params.id,
             firstName: '',
             lastName: '',
-            emailId: ''
+            email: ''
         }
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
         this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
@@ -29,7 +29,7 @@ class CreateEmployeeComponent extends Component {
                 this.setState({
                     firstName: employee.firstName,
                     lastName: employee.lastName,
-                    emailId: employee.emailId
+                    email: employee.email
                 });
             });
         }
@@ -37,7 +37,7 @@ class CreateEmployeeComponent extends Component {
 
     saveOrUpdateEmployee = (e) => {
         e.preventDefault();
-        let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
+        let employee = {firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email};
         console.log('employee => ' + JSON.stringify(employee));
 
         // step 5
@@ -61,7 +61,7 @@ class CreateEmployeeComponent extends Component {
     }
 
     changeEmailHandler = (event) => {
-        this.setState({emailId: event.target.value});
+        this.setState({email: event.target.value});
     }
 
     cancel() {
@@ -101,7 +101,7 @@ class CreateEmployeeComponent extends Component {
                                     <div className="form-group">
                                         <label> Email Id: </label>
                                         <input placeholder="Email Address" name="emailId" className="form-control"
-                                               value={this.state.emailId} onChange={this.changeEmailHandler}/>
+                                               value={this.state.email} onChange={this.changeEmailHandler}/>
                                     </div>
 
                                     <button className="btn btn-success" onClick={this.saveOrUpdateEmployee}>Save
