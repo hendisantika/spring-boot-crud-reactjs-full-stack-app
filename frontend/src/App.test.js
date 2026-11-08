@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import App from './App';
 
 // Avoid real HTTP calls to the backend during tests.
@@ -14,4 +14,10 @@ test('renders employee management header and list', async () => {
     render(<App/>);
     expect(screen.getByText(/Employee Management App/i)).toBeInTheDocument();
     expect(await screen.findByText(/Employees List/i)).toBeInTheDocument();
+});
+
+test('navigates to add employee form', async () => {
+    render(<App/>);
+    fireEvent.click(await screen.findByRole('button', {name: /Add Employee/i}));
+    expect(await screen.findByRole('heading', {name: /Add Employee/i})).toBeInTheDocument();
 });

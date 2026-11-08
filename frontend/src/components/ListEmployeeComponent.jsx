@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import withRouter from '../withRouter';
 import EmployeeService from '../services/EmployeeService'
 
 class ListEmployeeComponent extends Component {
@@ -20,11 +21,11 @@ class ListEmployeeComponent extends Component {
     }
 
     viewEmployee(id) {
-        this.props.history.push(`/view-employee/${id}`);
+        this.props.navigate(`/view-employee/${id}`);
     }
 
     editEmployee(id) {
-        this.props.history.push(`/add-employee/${id}`);
+        this.props.navigate(`/add-employee/${id}`);
     }
 
     componentDidMount() {
@@ -34,7 +35,7 @@ class ListEmployeeComponent extends Component {
     }
 
     addEmployee() {
-        this.props.history.push('/add-employee/_add');
+        this.props.navigate('/add-employee/_add');
     }
 
     render() {
@@ -90,4 +91,4 @@ class ListEmployeeComponent extends Component {
     }
 }
 
-export default ListEmployeeComponent
+export default withRouter(ListEmployeeComponent)

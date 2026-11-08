@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import withRouter from '../withRouter';
 import EmployeeService from '../services/EmployeeService'
 
 class ViewEmployeeComponent extends Component {
@@ -6,7 +7,7 @@ class ViewEmployeeComponent extends Component {
         super(props)
 
         this.state = {
-            id: this.props.match.params.id,
+            id: this.props.params.id,
             employee: {}
         }
     }
@@ -44,4 +45,4 @@ class ViewEmployeeComponent extends Component {
     }
 }
 
-export default ViewEmployeeComponent
+export default withRouter(ViewEmployeeComponent)
