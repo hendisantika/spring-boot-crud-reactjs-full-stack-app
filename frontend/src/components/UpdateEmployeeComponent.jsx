@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import withRouter from '../withRouter';
 import EmployeeService from '../services/EmployeeService';
 
 class UpdateEmployeeComponent extends Component {
@@ -6,7 +7,7 @@ class UpdateEmployeeComponent extends Component {
         super(props)
 
         this.state = {
-            id: this.props.match.params.id,
+            id: this.props.params.id,
             firstName: '',
             lastName: '',
             email: ''
@@ -33,7 +34,7 @@ class UpdateEmployeeComponent extends Component {
         console.log('employee => ' + JSON.stringify(employee));
         console.log('id => ' + JSON.stringify(this.state.id));
         EmployeeService.updateEmployee(employee, this.state.id).then(res => {
-            this.props.history.push('/employees');
+            this.props.navigate('/employees');
         });
     }
 
@@ -50,7 +51,7 @@ class UpdateEmployeeComponent extends Component {
     }
 
     cancel() {
-        this.props.history.push('/employees');
+        this.props.navigate('/employees');
     }
 
     render() {
@@ -94,4 +95,4 @@ class UpdateEmployeeComponent extends Component {
     }
 }
 
-export default UpdateEmployeeComponent
+export default withRouter(UpdateEmployeeComponent)
