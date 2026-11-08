@@ -64,18 +64,18 @@ class UpdateEmployeeComponent extends Component {
                             <h3 className="text-center">Update Employee</h3>
                             <div className="card-body">
                                 <form>
-                                    <div className="form-group">
-                                        <label> First Name: </label>
+                                    <div className="mb-3">
+                                        <label className="form-label"> First Name: </label>
                                         <input placeholder="First Name" name="firstName" className="form-control"
                                                value={this.state.firstName} onChange={this.changeFirstNameHandler}/>
                                     </div>
-                                    <div className="form-group">
-                                        <label> Last Name: </label>
+                                    <div className="mb-3">
+                                        <label className="form-label"> Last Name: </label>
                                         <input placeholder="Last Name" name="lastName" className="form-control"
                                                value={this.state.lastName} onChange={this.changeLastNameHandler}/>
                                     </div>
-                                    <div className="form-group">
-                                        <label> Email Id: </label>
+                                    <div className="mb-3">
+                                        <label className="form-label"> Email Id: </label>
                                         <input placeholder="Email Address" name="email" className="form-control"
                                                value={this.state.email} onChange={this.changeEmailHandler}/>
                                     </div>
