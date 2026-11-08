@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import withRouter from '../withRouter';
 import EmployeeService from '../services/EmployeeService';
 
 class CreateEmployeeComponent extends Component {
@@ -7,7 +8,7 @@ class CreateEmployeeComponent extends Component {
 
         this.state = {
             // step 2
-            id: this.props.match.params.id,
+            id: this.props.params.id,
             firstName: '',
             lastName: '',
             email: ''
@@ -43,11 +44,11 @@ class CreateEmployeeComponent extends Component {
         // step 5
         if (this.state.id === '_add') {
             EmployeeService.createEmployee(employee).then(res => {
-                this.props.history.push('/employees');
+                this.props.navigate('/employees');
             });
         } else {
             EmployeeService.updateEmployee(employee, this.state.id).then(res => {
-                this.props.history.push('/employees');
+                this.props.navigate('/employees');
             });
         }
     }
@@ -65,7 +66,7 @@ class CreateEmployeeComponent extends Component {
     }
 
     cancel() {
-        this.props.history.push('/employees');
+        this.props.navigate('/employees');
     }
 
     getTitle() {
@@ -88,18 +89,18 @@ class CreateEmployeeComponent extends Component {
                             }
                             <div className="card-body">
                                 <form>
-                                    <div className="form-group">
-                                        <label> First Name: </label>
+                                    <div className="mb-3">
+                                        <label className="form-label"> First Name: </label>
                                         <input placeholder="First Name" name="firstName" className="form-control"
                                                value={this.state.firstName} onChange={this.changeFirstNameHandler}/>
                                     </div>
-                                    <div className="form-group">
-                                        <label> Last Name: </label>
+                                    <div className="mb-3">
+                                        <label className="form-label"> Last Name: </label>
                                         <input placeholder="Last Name" name="lastName" className="form-control"
                                                value={this.state.lastName} onChange={this.changeLastNameHandler}/>
                                     </div>
-                                    <div className="form-group">
-                                        <label> Email Id: </label>
+                                    <div className="mb-3">
+                                        <label className="form-label"> Email Id: </label>
                                         <input placeholder="Email Address" name="emailId" className="form-control"
                                                value={this.state.email} onChange={this.changeEmailHandler}/>
                                     </div>
@@ -120,4 +121,4 @@ class CreateEmployeeComponent extends Component {
     }
 }
 
-export default CreateEmployeeComponent
+export default withRouter(CreateEmployeeComponent)
